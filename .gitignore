@@ -1,0 +1,16 @@
+# Ambientes Virtuais (Ignorar a pasta venv que deu erro de permissão)
+venv/
+.venv/
+ENV/
+
+# Dados Locais e Banco de Dados (Docker)
+.postgres_data/
+postgres_data/
+*.csv
+
+# Cache do Python e IDEs
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store

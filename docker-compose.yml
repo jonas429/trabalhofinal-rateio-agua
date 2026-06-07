@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # 1. SERVIÇO DO BANCO DE DADOS (PostgreSQL)
+  postgres_agua:
+    image: postgres:15
+    container_name: postgres_agua
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: senha_agua_123
+      POSTGRES_DB: gestao_agua
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Executa o script SQL inicial automaticamente se o banco for recriado
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # 2. SERVIÇO DA APLICAÇÃO PYTHON (Interface Web Streamlit)
+  app-python:
+    build: .
+    container_name: app_python_tcc
+    restart: always
+    ports:
+      - "8501:8501"  # <--- Vincula a porta do contêiner com a porta do Windows
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=postgres_agua
+      - DB_USER=admin
+      - DB_PASSWORD=senha_agua_123
+      - DB_NAME=gestao_agua
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - postgres_agua
+
+# CONFIGURAÇÃO DE VOLUMES PERSISTENTES
+volumes:
+  postgres_data:

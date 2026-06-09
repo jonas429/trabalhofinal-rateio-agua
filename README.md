@@ -25,10 +25,12 @@ O sistema adota uma arquitetura baseada em microsserviços e portabilidade de in
 
 Bash
 cd trabalhofinal-rateio-agua
+
 3. Suba a infraestrutura completa (Compilação do Python + Inicialização do PostgreSQL):
 
 Bash
 docker compose up -d --build
+
 4. Acesse o sistema no seu navegador de preferência através do endereço:
 http://localhost:8501
 

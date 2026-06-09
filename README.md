@@ -20,8 +20,8 @@ O sistema adota uma arquitetura baseada em microsserviços e portabilidade de in
 ### Passo a Passo
 1. Clone este repositório na sua máquina local:
    ```bash
-   git clone [https://github.com/jonas429/trabalhofinal-rateio-agua.git](https://github.com/jonas429/trabalhofinal-rateio-agua.git)
- 2.  Navegue até a pasta do projeto:
+     git clone [https://github.com/jonas429/trabalhofinal-rateio-agua.git](https://github.com/jonas429/trabalhofinal-rateio-agua.git)
+ 2. Navegue até a pasta do projeto:
 
     Bash
     cd trabalhofinal-rateio-agua
